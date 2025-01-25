@@ -1,2 +1,2 @@
-for i in range(2300):
-    print('STOP ', end='')
+for i in range(23000000):
+    print(i, end=' ')
