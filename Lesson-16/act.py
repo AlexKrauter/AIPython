@@ -24,7 +24,7 @@ mp_hands.HandLandmark.RING_FINGER_TIP, mp_hands.HandLandmark.PINKY_TIP]
         fingers.append(1) 
     return "scroll_up" if sum(fingers) == 5 else "scroll_down" if len(fingers) == 0 else "none" 
 
-cap = cv2.VideoCapture(0) 
+cap = cv2.VideoCapture(1) 
 cap.set(3, CAMW) 
 cap.set(4, CAMH)
 last_scroll = p_time = 0 
