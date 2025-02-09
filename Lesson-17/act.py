@@ -43,4 +43,4 @@ while True:
         break 
     img = cv2.flip(img, 1)
     imgrgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    results = hands.process(img_rgb)
+    results = hands.process(imgrgb)
