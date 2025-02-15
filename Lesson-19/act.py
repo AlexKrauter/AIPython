@@ -1,6 +1,4 @@
-import requests
-import random
-import html
+import requests, random, html, time, os
 CATEGORY = 9
 URL = f'https://opentdb.com/api.php?amount=10&category={CATEGORY}&type=multiple'
 def getquestions():
@@ -20,8 +18,12 @@ def main():
     questions = getquestions()
 
     score = 0
+
+    order = ''
     
     print('Welcome to the education quiz!\n')
+    time.sleep(1)
+    print('Please select a category')
     
     for i, q in enumerate(questions, 1):
         question = html.unescape(q['question'])
@@ -48,12 +50,15 @@ def main():
 
         if options[answer-1] == correct:
             print(f'✅ Correct! You guessed: {correct}')
+            order += '✅ '
             score += 1
         else:
             print(f'❌ Incorrect! Correct answer: {correct}')
+            order += '❌ '
 
     print(f'Final Score: {score}/{len(questions)}')
     print(f'Percentage: {score/len(questions)*100}%')
+    print(f'Question order: {order[:-1]}')
 
 
 if __name__ == '__main__':
